@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>madhushalasoftwareGpt — Download</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#1a0800 0%,#5c1800 40%,#b84a00 100%);
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:center; padding:24px; overflow-x:hidden;
+  }
+
+  /* Animated background circles */
+  .bg-circles { position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none; }
+  .circle {
+    position:absolute; border-radius:50%;
+    background:rgba(184,74,0,0.15);
+    animation:float 8s ease-in-out infinite;
+  }
+  .circle:nth-child(1){ width:400px;height:400px;top:-100px;left:-100px;animation-delay:0s; }
+  .circle:nth-child(2){ width:300px;height:300px;bottom:-80px;right:-80px;animation-delay:2s; }
+  .circle:nth-child(3){ width:200px;height:200px;top:50%;left:60%;animation-delay:4s; }
+  @keyframes float{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+
+  .card {
+    position:relative; z-index:1;
+    background:rgba(255,255,255,0.97);
+    border-radius:28px;
+    padding:48px 44px;
+    max-width:540px; width:100%;
+    box-shadow:0 40px 80px rgba(0,0,0,0.5);
+    text-align:center;
+    animation:popIn .6s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes popIn{ from{transform:scale(.7) translateY(60px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+
+  /* Logo */
+  .logo { width:90px;height:90px;border-radius:22px;
+    background:linear-gradient(135deg,#b84a00,#7c2000);
+    display:flex;align-items:center;justify-content:center;
+    font-size:44px; margin:0 auto 20px;
+    box-shadow:0 12px 30px rgba(184,74,0,0.4);
+    animation:pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{box-shadow:0 12px 30px rgba(184,74,0,0.4)} 50%{box-shadow:0 12px 50px rgba(184,74,0,0.7)} }
+
+  h1{ font-family:'Playfair Display',serif; font-size:28px; color:#2d1200; margin-bottom:6px; }
+  .subtitle{ font-size:15px; color:#a07060; margin-bottom:28px; line-height:1.6; }
+
+  /* Feature pills */
+  .features{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:28px; }
+  .pill{ background:#fff4ee; border:1.5px solid #f0d0b0; border-radius:20px;
+    padding:6px 14px; font-size:12.5px; color:#7c3000; font-weight:500; }
+
+  /* Download button */
+  .dl-btn {
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    width:100%; padding:18px 24px;
+    background:linear-gradient(135deg,#b84a00,#7c2000);
+    color:#fff; border:none; border-radius:16px;
+    font-size:17px; font-weight:700; cursor:pointer;
+    font-family:'Inter',sans-serif;
+    text-decoration:none;
+    box-shadow:0 8px 24px rgba(184,74,0,0.45);
+    transition:all .3s; margin-bottom:14px;
+    animation:btnPulse 2s ease-in-out infinite;
+  }
+  @keyframes btnPulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.02)} }
+  .dl-btn:hover{ transform:scale(1.04)!important; box-shadow:0 12px 32px rgba(184,74,0,0.6); }
+  .dl-btn .icon{ font-size:24px; }
+  .dl-btn-text{ display:flex; flex-direction:column; align-items:flex-start; }
+  .dl-btn-text strong{ font-size:16px; line-height:1.2; }
+  .dl-btn-text span{ font-size:11.5px; opacity:.85; font-weight:400; }
+
+  /* Progress bar (shown after click) */
+  #progressWrap{ display:none; margin-bottom:14px; }
+  .progress-bar-bg{ background:#f0e4d8; border-radius:10px; height:8px; overflow:hidden; margin-bottom:8px; }
+  .progress-bar-fill{ height:100%; background:linear-gradient(90deg,#b84a00,#d47000);
+    border-radius:10px; width:0; transition:width .3s; }
+  #progressText{ font-size:12px; color:#a07060; }
+
+  /* Info boxes */
+  .info-row{ display:flex; gap:10px; margin-bottom:20px; }
+  .info-box{ flex:1; background:#faf7f4; border:1.5px solid #ede0d4; border-radius:12px; padding:12px; }
+  .info-box .icon{ font-size:20px; margin-bottom:4px; }
+  .info-box strong{ display:block; font-size:12px; color:#2d1200; }
+  .info-box span{ font-size:11px; color:#a07060; }
+
+  /* Steps */
+  .steps{ background:#faf7f4; border:1.5px solid #ede0d4; border-radius:14px; padding:16px; margin-bottom:20px; text-align:left; }
+  .steps-title{ font-size:12px; font-weight:700; color:#b84a00; text-transform:uppercase; letter-spacing:.8px; margin-bottom:10px; }
+  .step{ display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
+  .step:last-child{ margin-bottom:0; }
+  .step-num{ background:linear-gradient(135deg,#b84a00,#7c2000); color:#fff; border-radius:50%;
+    width:22px;height:22px; display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px; }
+  .step-text{ font-size:12.5px; color:#2d1200; line-height:1.5; }
+
+  /* Social links */
+  .socials{ display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .social-link{ display:flex; align-items:center; gap:5px; background:#fff4ee;
+    border:1.5px solid #e8c8a0; border-radius:10px; padding:6px 12px;
+    text-decoration:none; font-size:12px; font-weight:500; color:#7c3000;
+    transition:all .2s; }
+  .social-link:hover{ background:#b84a00; color:#fff; }
+
+  .footer{ margin-top:16px; font-size:11.5px; color:rgba(255,255,255,0.6); text-align:center; position:relative; z-index:1; }
+  .footer strong{ color:rgba(255,255,255,0.9); }
+
+  /* Success message */
+  #successMsg{ display:none; background:#f0fff4; border:2px solid #68d391; border-radius:14px; padding:16px; margin-bottom:14px; }
+  #successMsg strong{ color:#276749; display:block; font-size:14px; margin-bottom:4px; }
+  #successMsg span{ color:#4a9268; font-size:12.5px; }
+</style>
+</head>
+<body>
+
+<div class="bg-circles">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div>
+
+<div class="card">
+  <div class="logo">&#127863;</div>
+  <h1>madhushalasoftwareGpt</h1>
+  <p class="subtitle">Your Madhushala Software Assistant<br>Files · CRM · Downloads · Support · 24/7</p>
+
+  <div class="features">
+    <div class="pill">&#128172; Smart Chat</div>
+    <div class="pill">&#127908; Voice Input</div>
+    <div class="pill">&#128190; Setup Files</div>
+    <div class="pill">&#128187; CRM Links</div>
+    <div class="pill">&#128273; Secure Login</div>
+    <div class="pill">&#128247; AI News</div>
+  </div>
+
+  <!-- Success message -->
+  <div id="successMsg">
+    <strong>&#127881; Download Started!</strong>
+    <span>Your download is starting... Run the EXE to begin installation.</span>
+  </div>
+
+  <!-- Progress bar -->
+  <div id="progressWrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div id="progressText">Preparing download...</div>
+  </div>
+
+  <!-- Main download button -->
+  <a id="downloadBtn"
+     href="https://github.com/mca70/madhushalasoftwareGpt/releases/latest/download/madhushalasoftwareGpt.exe"
+     class="dl-btn"
+     onclick="startDownload()">
+    <span class="icon">&#11015;&#65039;</span>
+    <div class="dl-btn-text">
+      <strong>Download for Windows</strong>
+      <span>madhushalasoftwareGpt.exe &bull; Free &bull; No install needed</span>
+    </div>
+  </a>
+
+  <!-- Info boxes -->
+  <div class="info-row">
+    <div class="info-box">
+      <div class="icon">&#127759;</div>
+      <strong>Windows 7/8/10/11</strong>
+      <span>All versions supported</span>
+    </div>
+    <div class="info-box">
+      <div class="icon">&#9889;</div>
+      <strong>One Click Run</strong>
+      <span>No Python needed</span>
+    </div>
+    <div class="info-box">
+      <div class="icon">&#128274;</div>
+      <strong>Secure Login</strong>
+      <span>Password protected</span>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps">
+    <div class="steps-title">&#128640; How to Install</div>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Click <strong>Download</strong> button above</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Find the file in your <strong>Downloads</strong> folder</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Double-click</strong> the EXE to launch</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Browser opens automatically — <strong>Login & use!</strong> &#127881;</div></div>
+  </div>
+
+  <!-- Social links -->
+  <div class="socials">
+    <a class="social-link" href="https://madhushalasoftware.com/" target="_blank">&#127760; Website</a>
+    <a class="social-link" href="https://abmtechno.com/" target="_blank">&#128187; ABM Techno</a>
+    <a class="social-link" href="https://www.facebook.com/madhushalasoftware1330/" target="_blank">&#128241; Facebook</a>
+    <a class="social-link" href="tel:+918101434343">&#128222; Support</a>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; 2026 <strong>Madhushala Software</strong> &mdash; Powered by <strong>ABM Technomatrix Pvt. Ltd.</strong>
+</div>
+
+<script>
+function startDownload(){
+  // Show progress animation
+  const progressWrap = document.getElementById('progressWrap');
+  const fill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const successMsg = document.getElementById('successMsg');
+  const btn = document.getElementById('downloadBtn');
+
+  progressWrap.style.display = 'block';
+
+  let progress = 0;
+  const steps = [
+    {p:20, t:'Connecting to server...'},
+    {p:50, t:'Preparing file...'},
+    {p:80, t:'Starting download...'},
+    {p:100, t:'Download started! &#127881;'},
+  ];
+
+  let i = 0;
+  const interval = setInterval(()=>{
+    if(i < steps.length){
+      fill.style.width = steps[i].p + '%';
+      progressText.innerHTML = steps[i].t;
+      i++;
+    } else {
+      clearInterval(interval);
+      progressWrap.style.display = 'none';
+      successMsg.style.display = 'block';
+      btn.style.background = 'linear-gradient(135deg,#2d8a00,#1a5c00)';
+      btn.querySelector('strong').textContent = '✅ Download Started!';
+    }
+  }, 600);
+}
+
+// Auto-start download after 1.5 seconds if ?auto=1
+const params = new URLSearchParams(window.location.search);
+if(params.get('auto') === '1'){
+  setTimeout(()=>{
+    document.getElementById('downloadBtn').click();
+  }, 1500);
+}
+</script>
+</body>
+</html>
