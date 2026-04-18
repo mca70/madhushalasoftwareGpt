@@ -94,7 +94,7 @@ How can I help you today?<br><br>
     {
         "keywords": ["pos downloader","madhushala pos downloader","pos download"],
         "label": "Madhushala POS Downloader",
-        "link": "https://www.dropbox.com/scl/fi/mlrf1ogpwlxa0eyuda6t3/Madhushala-Downloader.exe?rlkey=jzgvptjyga4bjnjhi7vmfqyvx&st=to5hjkag&dl=0",
+        "link": "https://www.dropbox.com/scl/fi/nrrxqypg40zud8fyw4hk3/Madhushala-Downloader.zip?rlkey=0ud6aljpv5ig90jqsn70cnbd2&st=xw2y81w8&dl=1",
         "reply": "Here is your <strong>Madhushala POS Downloader</strong>. Click below to download from Google Drive."
     },
     {
@@ -112,7 +112,7 @@ How can I help you today?<br><br>
     {
         "keywords": ["database delete","madhushala database delete","db delete","database delete query"],
         "label": "Madhushala Database Delete Query",
-        "link": "https://drive.google.com/file/d/1MsvCNoVDbBwqff9YdNv4hA1Db8U3xDhC/view?usp=drive_link",
+        "link": "https://www.dropbox.com/scl/fi/8v23uw0un5ijr48172ifb/delete-ultimate.sql?rlkey=9bbgh2non5z7dhha62krbnldo&st=fdrjldsc&dl=1",
         "reply": "Here is the <strong>Madhushala Database Delete Query</strong>. Click below to access it."
     },
     {
